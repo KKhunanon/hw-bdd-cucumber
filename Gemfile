@@ -12,6 +12,13 @@ gem 'jquery-rails'
 gem 'execjs'
 gem 'therubyracer', :platforms => :ruby
 
+
+# add in google auther section
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem "omniauth-rails_csrf_protection", "~> 1.0"
+# 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
@@ -23,12 +30,15 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'cucumber-rails', require: false
   gem 'rspec-rails'
-
   gem 'pry'
   gem 'pry-byebug'
-
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3', '~> 1.3.6'
+
+
+
+
+  gem 'dotenv-rails'  #new addition on auth
 end
 
 group :production do
