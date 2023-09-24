@@ -45,6 +45,24 @@ class MoviesController < ApplicationController
     redirect_to movies_path
   end
 
+  # def movie_params
+  #   params.require(:movie).permit(:title, :rating, :description, :release_date)
+  # end
+  
+  #------------------------part 5 adding
+  def search_tmdb
+    @movie_name = params[:movie][:title]
+    if @movie_name == "Inception"
+      
+      redirect_to new_movie_path
+      flash[:notice] = "#{@movie_name} was found in TMDb."
+    else
+      flash[:notice] = "'#{@movie_name}' was not found in TMDb."
+      redirect_to movies_path
+    end
+  end
+  
+  # ---------------------------------------------------
   private
 
   def force_index_redirect
@@ -66,4 +84,9 @@ class MoviesController < ApplicationController
   def sort_by
     params[:sort_by] || session[:sort_by] || 'id'
   end
+
+  def movie_params
+    params.require(:movie).permit(:title, :rating, :description, :release_date)
+  end
+
 end

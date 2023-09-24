@@ -1,7 +1,10 @@
 <!--  This file is app/views/movies/index.html.erb -->
 <h2>All Movies</h2>
-
+<h2>Search TMDb for a movie</h2>
 <%#  Part 2: Start here... %>
+
+
+
 
 <%= form_tag movies_path, method: :get, id: 'ratings_form' do %>
   <%= hidden_field_tag 'sort_by', @sort_by %>
@@ -52,3 +55,11 @@
   </tbody>
 </table>
 <%= link_to 'Add new movie', new_movie_path, class: 'btn btn-primary' %>
+
+
+<%= form_tag search_tmdb_path do %>
+  <%= label :movie, :title, 'Search Terms', class: 'col-form-label' %>
+  <%= text_field :movie, 'title', class: 'form-control' %>
+  <br>
+  <%= submit_tag 'Search TMDb', class: 'btn btn-primary'%>
+<% end %>
