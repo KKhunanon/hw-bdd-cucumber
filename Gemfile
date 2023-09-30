@@ -12,6 +12,8 @@ gem 'jquery-rails'
 gem 'execjs'
 gem 'therubyracer', :platforms => :ruby
 
+#add for search
+gem 'themoviedb'
 
 # add in google auther section
 gem 'devise'
