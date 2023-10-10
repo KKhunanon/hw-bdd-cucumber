@@ -12,7 +12,7 @@ gem 'jquery-rails'
 gem 'execjs'
 gem 'therubyracer', :platforms => :ruby
 
-#add for search
+#add for movie database
 gem 'themoviedb'
 
 # add in google auther section

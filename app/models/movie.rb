@@ -1,4 +1,7 @@
 class Movie < ActiveRecord::Base
+  #add relation
+  has_many :reviews
+  
   def self.all_ratings
     ['G', 'PG', 'PG-13', 'R']
   end

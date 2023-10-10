@@ -1,0 +1,46 @@
+<h1>New Review for <%= @movie.title %></h1>
+
+<%= form_tag(movie_reviews_path(@movie), class: 'form') do %>
+  <div class="form-group">
+    <label class="col-form-label">How many potatoes:</label>
+    <%= select_tag 'review[potatoes]', options_for_select(1..5), class: 'form-control' %>
+  </div>
+  <%= label :review, :comments, 'Comments', class: 'col-form-label' %>
+  <%= text_area :review, :comments, class: 'form-control'%>
+  <br>
+  <%= submit_tag 'Create Review', class: 'btn btn-success' %>
+<% end %>
+<br>
+<br>
+<h1>All Review</h1>
+<table class="table table-striped col-md-12">
+  <thead>
+    <tr>
+      <th>Potatoes</th>
+      <th>Comments</th>
+      <th>User Name</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @reviews.zip(@moviegoer_info).each do |review, moviegoer| %>
+      <tr>
+        <td>
+          <%= review.potatoes %>
+        </td>
+        <td>
+          <%= review.comments %>
+        </td>
+        <td>
+          <%= moviegoer.full_name %>
+        </td>
+        <td>
+          <% if review.moviegoer_id == current_moviegoer.id%>
+            <%= link_to "Edit", edit_movie_review_path(@movie, review.id) %>
+          <% else %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

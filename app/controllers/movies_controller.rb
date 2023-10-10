@@ -1,3 +1,4 @@
+#path: app/controllers/movies_controller.rb
 Tmdb::Api.key(ENV['TMDB_KEY'])
 class MoviesController < ApplicationController
   before_action :force_index_redirect, only: [:index]
@@ -67,32 +68,6 @@ class MoviesController < ApplicationController
     redirect_to movies_path
   end
 
-  # def movie_params
-  #   params.require(:movie).permit(:title, :rating, :description, :release_date)
-  # end
-  
-  #------------------------part 5 adding
-  # def search_tmdb
-  #   @movie_name = params[:movie][:title]
-  #   movieName = Tmdb::Movie.find(@movie_name)
-  #   if !(movieName.empty?)
-  #     #new addintion (search in DB)
-  #     Movie_title = movieName[0].title
-  #     Movie_date = movieName[0].release_date
-  #     Movie_name = Movie.where(title:Movie_title) #from DB
-  #     if !(Movie_name.empty?)
-  #       redirect_to movie_path(Movie_name[0].id)
-  #     else
-  #       redirect_to new_movie_path(name:Movie_title,date:Movie_date)
-  #     end
-
-  #     flash[:notice] = "#{@movie_name} was found in TMDb."
-  #   else
-  #     flash[:notice] = "'#{@movie_name}' was not found in TMDb."
-  #     redirect_to movies_path
-  #   end
-  # end
-  
   # ---------------------------------------------------
   private
 

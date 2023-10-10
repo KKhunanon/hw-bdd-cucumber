@@ -1,4 +1,10 @@
 <!--  app/views/movies/show.html.erb -->
+<style>
+  /* Add margin to links with the 'btn' class */
+  #BTN {
+    margin: 10px; /* You can adjust the margin size as needed */
+  }
+</style>
 <h2>Details about <em><%= @movie.title %></em></h2>
 
 <ul id="details">
@@ -18,7 +24,8 @@
 </p>
 
 <div class="row">
-  <%= link_to 'Edit', edit_movie_path(@movie), class: 'btn btn-primary col-2' %>
-  <%= link_to 'Delete', movie_path(@movie), 'data-method': 'delete', 'data-confirm': 'Are you sure?', class: 'btn btn-danger col-2' %>
-  <%= link_to 'Back to movie list', movies_path, class: 'btn btn-primary col-2' %>
+  <%= link_to 'Edit', edit_movie_path(@movie), class: 'btn btn-primary col-2',  id: 'BTN' %>
+  <%= link_to 'Delete', movie_path(@movie), 'data-method': 'delete', 'data-confirm': 'Are you sure?', class: 'btn btn-danger col-2',  id: 'BTN' %>
+  <%= link_to 'Back to movie list', movies_path, class: 'btn btn-primary col-2' , id: 'BTN' %>
+  <%= link_to 'Review', new_movie_review_path(@movie), class: 'btn btn-primary col-2' , id: 'BTN' %>
 </div>
